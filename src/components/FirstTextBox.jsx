@@ -1,11 +1,14 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
+// testing common:
+import bus from './common';
 
 const FirstTextBox = () => {
     const [text, setText] = useState("");
 
     useEffect(() => {
-        let event = new Event("charTriggered");
-        document.dispatchEvent(event, { detail: "123"})
+      // console.log(text);
+      // bus.sender(text);
+      document.dispatchEvent(new CustomEvent("charTriggered", { detail: text}));
     }, [text]);
 
   return (

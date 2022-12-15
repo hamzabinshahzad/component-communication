@@ -1,18 +1,25 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
+// testing common:
+import bus from './common';
 
 const SecondTextBox = () => {
+    const [text, setText] = useState("");
 
     useEffect(() => {
-        let ftb = document.getElementById("stb");
-        ftb.addEventListener("charTriggered", (e) => {
-            console.log("Hit!");
+        document.addEventListener("charTriggered", (ftb) => {
+          setText(ftb.detail);
+          // console.log(ftb);
         });
     });
+
+    const onChangeHandler = (e) => {
+      setText(e.target.value);
+    }
 
   return (
     <div>
         <label htmlFor="stb">Second Text Box:</label>
-        <input id="stb" name='stb' type="text" />
+        <input id="stb" name='stb' type="text" onChange={onChangeHandler} value={text} />
     </div>
   )
 }
