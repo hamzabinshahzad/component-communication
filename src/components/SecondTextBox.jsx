@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-// testing common:
-import bus from './common';
+
 
 const SecondTextBox = () => {
     const [text, setText] = useState("");
